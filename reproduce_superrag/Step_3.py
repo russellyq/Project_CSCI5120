@@ -8,7 +8,6 @@ from superrag.llm import openai_complete_if_cache, openai_embedding
 from superrag.utils import EmbeddingFunc
 import numpy as np
 
-os.environ["OPENAI_API_KEY"] = "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"
 
 ## For Upstage API
 async def llm_model_func(

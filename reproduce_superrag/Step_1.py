@@ -8,7 +8,6 @@ from superrag.utils import EmbeddingFunc
 from superrag.llm import openai_complete_if_cache, openai_embedding
 from superrag.llm import ollama_model_complete, ollama_embedding
 
-# os.environ["OPENAI_API_KEY"] = "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"
 
 async def llm_model_func(
     prompt, system_prompt=None, history_messages=[], **kwargs
