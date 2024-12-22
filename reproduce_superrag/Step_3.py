@@ -8,6 +8,7 @@ from superrag.llm import openai_complete_if_cache, openai_embedding
 from superrag.utils import EmbeddingFunc
 import numpy as np
 
+# os.environ["OPENAI_API_KEY"] = ""
 
 ## For Upstage API
 async def llm_model_func(
@@ -99,7 +100,7 @@ if __name__ == "__main__":
     mode = "hybrid"
     WORKING_DIR = f"datasets/{cls}"
 
-    rag = LightRAG(
+    rag = SuperRAG(
         working_dir=WORKING_DIR,
         llm_model_func=llm_model_func,
         embedding_func=EmbeddingFunc(

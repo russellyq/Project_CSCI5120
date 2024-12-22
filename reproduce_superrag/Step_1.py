@@ -8,6 +8,7 @@ from superrag.utils import EmbeddingFunc
 from superrag.llm import openai_complete_if_cache, openai_embedding
 from superrag.llm import ollama_model_complete, ollama_embedding
 
+# os.environ["OPENAI_API_KEY"] = "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"
 
 async def llm_model_func(
     prompt, system_prompt=None, history_messages=[], **kwargs
@@ -51,36 +52,36 @@ def insert_text(rag, file_path):
         print("Insertion failed after exceeding the maximum number of retries")
 
 
-cls = "mix"
+cls = "agriculture"
 WORKING_DIR = f"./datasets/{cls}"
 
 if not os.path.exists(WORKING_DIR):
     os.mkdir(WORKING_DIR)
 
 
-# # superRAG with solar-mini
-rag = SuperRAG(
-    working_dir=WORKING_DIR,
-    llm_model_func=llm_model_func,
-    embedding_func=EmbeddingFunc(
-        embedding_dim=4096, max_token_size=8192, func=embedding_func
-    ),
-)
-
-# # superRAG with qwen2 model
+# # # superRAG with solar-mini
 # rag = SuperRAG(
 #     working_dir=WORKING_DIR,
-#     llm_model_func=ollama_model_complete,
-#     llm_model_name="qwen2m",
-#     # llm_model_kwargs={"host": "http://localhost:11434", "options": {"num_ctx": 32768}},
+#     llm_model_func=llm_model_func,
 #     embedding_func=EmbeddingFunc(
-#         embedding_dim=768,
-#         max_token_size=8192,
-#         func=lambda texts: ollama_embedding(
-#             texts, embed_model="nomic-embed-text", host="http://localhost:11434"
-#         ),
+#         embedding_dim=4096, max_token_size=8192, func=embedding_func
 #     ),
 # )
+
+# superRAG with qwen2 model
+rag = SuperRAG(
+    working_dir=WORKING_DIR,
+    llm_model_func=ollama_model_complete,
+    llm_model_name="qwen2m",
+    # llm_model_kwargs={"host": "http://localhost:11434", "options": {"num_ctx": 32768}},
+    embedding_func=EmbeddingFunc(
+        embedding_dim=768,
+        max_token_size=8192,
+        func=lambda texts: ollama_embedding(
+            texts, embed_model="nomic-embed-text", host="http://localhost:11434"
+        ),
+    ),
+)
 
 
 insert_text(rag, f"./datasets/unique_contexts/{cls}_unique_contexts.json")

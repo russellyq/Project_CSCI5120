@@ -13,7 +13,6 @@ from .llm import (
 from .operate import (
     chunking_by_token_size,
     extract_entities,
-    # local_query,global_query,hybrid_query,
     kg_query,
     naive_query,
 )
@@ -44,11 +43,6 @@ from .kg.neo4j_impl import Neo4JStorage
 
 from .kg.oracle_impl import OracleKVStorage, OracleGraphStorage, OracleVectorDBStorage
 
-# future KG integrations
-
-# from .kg.ArangoDB_impl import (
-#     GraphStorage as ArangoDBStorage
-# )
 
 
 def always_get_an_event_loop() -> asyncio.AbstractEventLoop:
