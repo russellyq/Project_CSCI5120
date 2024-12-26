@@ -25,22 +25,3 @@ rag = SuperRAG(
     ),
 )
 
-with open("./book.txt", "r", encoding="utf-8") as f:
-    rag.insert(f.read())
-# Perform naive search
-print(rag.query("What are the top themes in this story?", param=QueryParam(mode="naive")))
-
-# Perform local search
-print(
-    rag.query("What are the top themes in this story?", param=QueryParam(mode="local"))
-)
-
-# Perform global search
-print(
-    rag.query("What are the top themes in this story?", param=QueryParam(mode="global"))
-)
-
-# Perform hybrid search
-print(
-    rag.query("What are the top themes in this story?", param=QueryParam(mode="hybrid"))
-)

@@ -4,7 +4,7 @@ import json
 import asyncio
 from superrag import SuperRAG, QueryParam
 from tqdm import tqdm
-from superrag.llm import openai_complete_if_cache, openai_embedding
+from superrag.llm import ollama_model_complete, openai_complete_if_cache, openai_embedding
 from superrag.utils import EmbeddingFunc
 import numpy as np
 
@@ -99,12 +99,26 @@ if __name__ == "__main__":
     cls = "mix"
     mode = "hybrid"
     WORKING_DIR = f"datasets/{cls}"
-
+    # superRAG with solar-mini model
+    # rag = SuperRAG(
+    #     working_dir=WORKING_DIR,
+    #     llm_model_func=llm_model_func,
+    #     embedding_func=EmbeddingFunc(
+    #         embedding_dim=4096, max_token_size=8192, func=embedding_func
+    #     ),
+    # )
+    
+    # superRAG with qwen2 model
     rag = SuperRAG(
         working_dir=WORKING_DIR,
-        llm_model_func=llm_model_func,
+        llm_model_func=ollama_model_complete,
+        llm_model_name="qwen2m",
         embedding_func=EmbeddingFunc(
-            embedding_dim=4096, max_token_size=8192, func=embedding_func
+            embedding_dim=768,
+            max_token_size=8192,
+            func=lambda texts: ollama_embedding(
+                texts, embed_model="nomic-embed-text", host="http://localhost:11434"
+            ),
         ),
     )
     query_param = QueryParam(mode=mode)

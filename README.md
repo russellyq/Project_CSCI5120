@@ -13,6 +13,7 @@ We assume the following software/packages are correctly installed.
 ```bash
 conda create -n superrag  -y
 conda activate superrag
+pip install torch==1.13.0+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
 pip install -r requirements.txt
 pip install -e .
 ```
