@@ -125,7 +125,7 @@ This step is used to generation answers of the question prompts from Step 2 base
 python3 examples_superrag/batch_eval.py
 ```
 
-Here we provide two results from two different LLM model, Solar-mini and gpt_4o_mini in this [link](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155225591_link_cuhk_edu_hk/EiTnNUi3gatFrz9wIfzSN9UBFnJXA1hdOGAfVXJwg9FWUg?e=GUz8d3)
+Here we provide two results from two different LLM model, Solar-mini and gpt_4o_mini, the question prompt files and the comparison_results file in this [link](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155225591_link_cuhk_edu_hk/EiTnNUi3gatFrz9wIfzSN9UBFnJXA1hdOGAfVXJwg9FWUg?e=GUz8d3)
 
 The comparison result will be generated.
 <div align="center">
