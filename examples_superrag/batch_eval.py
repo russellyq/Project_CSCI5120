@@ -31,8 +31,13 @@ def batch_eval(query_file, result1_file, result2_file, output_file_path):
         You will evaluate two answers to the same question based on three criteria: **Comprehensiveness**, **Diversity**, and **Empowerment**.
 
         - **Comprehensiveness**: How much detail does the answer provide to cover all aspects and details of the question?
+        Definition: This criterion evaluates how thoroughly the answer addresses the question. It focuses on how much detail the answer provides, whether all relevant aspects of the question are covered, and whether it includes any missing or critical information.
+        
         - **Diversity**: How varied and rich is the answer in providing different perspectives and insights on the question?
+        Definition: This criterion assesses the richness and variety of perspectives presented in the answer. It looks at whether the answer brings in a broad range of insights, angles, or suggestions related to the question.
+        
         - **Empowerment**: How well does the answer help the reader understand and make informed judgments about the topic?
+        Definition: Empowerment evaluates how well the answer enables the reader to understand the topic and make informed decisions. An answer that excels in empowerment will help the reader develop a deeper understanding of the subject and will present the information in a way that facilitates practical application.
 
         For each criterion, choose the better answer (either Answer 1 or Answer 2) and explain why. Then, select an overall winner based on these three categories.
 
